@@ -5,9 +5,9 @@
 
 enum Color
 {
-	Green,//”Õ‚ÌF
-	White,
-	Black
+	Green,//”Õ‚ÌF(‹ó‚Æ‚µ‚Äˆµ‚¤)
+	Black,
+	White
 };
 
 class Stone

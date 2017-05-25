@@ -1,13 +1,13 @@
-#include <Windows.h>
 #include <iostream>
+#include <Windows.h>
 #include "Reversi.h"
 
-#define COLOR_WHITE 7
 #define COLOR_BLACK 0
+#define COLOR_WHITE 7
 
 using namespace std;
 
-void Reversi :: Run()
+void Reversi::Run()
 {
 	cout << "Runだよ～" << endl;
 
@@ -31,35 +31,35 @@ void Reversi::Initialize()
 	board.Initialize();
 
 	const int green = 0;
-	const int white = 1;
-	const int black = 2;
+	const int black = 1;
+	const int white = 2;
 
 	for (int i = 0; i < VERTICAL; i++)
 	{
-		for (int j = 0; j < HORIZONTAL;j++)
+		for (int j = 0; j < HORIZONTAL; j++)
 		{
 			//中央の左上
 			if ((j + 1) * 2 == HORIZONTAL && (i + 1) * 2 == VERTICAL)
 			{
-				stone[i][j].Initialize(white);
+				stone[i][j].Initialize(black);
 				continue;
 			}
 			//中央の右上
 			if (j * 2 == HORIZONTAL && (i + 1) * 2 == VERTICAL)
 			{
-				stone[i][j].Initialize(black);
+				stone[i][j].Initialize(white);
 				continue;
 			}
 			//中央の左下
 			if ((j + 1) * 2 == HORIZONTAL && i * 2 == VERTICAL)
 			{
-				stone[i][j].Initialize(black);
+				stone[i][j].Initialize(white);
 				continue;
 			}
 			//中央の右下
 			if (j * 2 == HORIZONTAL && i * 2 == VERTICAL)
 			{
-				stone[i][j].Initialize(white);
+				stone[i][j].Initialize(black);
 				continue;
 			}
 
@@ -75,18 +75,14 @@ void Reversi::Update()
 
 void Reversi::Draw()
 {
+	//描画更新
+	system("cls");
+
 	cout << "Drawだよ～" << endl;
+	guide.DrawHorizontal();
+	board.Draw(stone);
 
-	board.Draw();
-
-	for (int i = 0; i < VERTICAL; i++)
-	{
-		for (int j = 0; j < HORIZONTAL; j++)
-		{
-			stone[i][j].Draw();
-		}
-		cout << endl;
-	}
+	guide.DrawVertical();
 
 	HANDLE hStdout;
 	WORD wAttributes;
@@ -96,21 +92,8 @@ void Reversi::Draw()
 	//hStdoutのコンソールスクリーンバッファ情報をcsbiに取得
 	GetConsoleScreenBufferInfo(hStdout, &csbi);
 
-	wAttributes = FOREGROUND_GREEN;
+	wAttributes = 7 | FOREGROUND_INTENSITY;
 	SetConsoleTextAttribute(hStdout, wAttributes);
-	cout << "緑です" << endl;
-	wAttributes = FOREGROUND_RED;
-	SetConsoleTextAttribute(hStdout, wAttributes);
-	cout << "赤です" << endl;
-	wAttributes = FOREGROUND_BLUE;
-	SetConsoleTextAttribute(hStdout, wAttributes);
-	cout << "青です" << endl;
-	wAttributes = FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_BLUE;
-	SetConsoleTextAttribute(hStdout, wAttributes);
-	cout << "白です" << endl;
-	wAttributes = wAttributes | FOREGROUND_INTENSITY;
-	SetConsoleTextAttribute(hStdout, wAttributes);
-	cout << "強調表示です" << endl;
 
 	cout << endl;
 
@@ -119,14 +102,14 @@ void Reversi::Draw()
 	SetConsoleTextAttribute(hStdout, wAttributes);
 
 	cout << "   "; cout << "┏━┳━┳━┳━┳━┳━┳━┳━┓" << endl;
-	cout << " 1 "; cout << "┃　┃　┃　┃　┃　┃　┃　┃　┃" << endl;
+	cout << " A "; cout << "┃　┃　┃　┃　┃　┃　┃　┃　┃" << endl;
 	cout << "   "; cout << "┣━╋━╋━╋━╋━╋━╋━╋━┫" << endl;
-	cout << " 2 "; cout << "┃　┃　┃　┃　┃　┃　┃　┃　┃" << endl;
+	cout << " B "; cout << "┃　┃　┃　┃　┃　┃　┃　┃　┃" << endl;
 	cout << "   "; cout << "┣━╋━╋━╋━╋━╋━╋━╋━┫" << endl;
-	cout << " 3 "; cout << "┃　┃　┃　┃　┃　┃　┃　┃　┃" << endl;
+	cout << " C "; cout << "┃　┃　┃　┃　┃　┃　┃　┃　┃" << endl;
 	cout << "   "; cout << "┣━╋━╋━╋━╋━╋━╋━╋━┫" << endl;
 
-	cout << " 4 "; cout << "┃　┃　┃　┃●┃";
+	cout << " D "; cout << "┃　┃　┃　┃●┃";
 	wAttributes = COLOR_BLACK | BACKGROUND_GREEN;
 	SetConsoleTextAttribute(hStdout, wAttributes);
 	cout << "●";
@@ -134,7 +117,7 @@ void Reversi::Draw()
 	SetConsoleTextAttribute(hStdout, wAttributes);
 	cout << "┃　┃　┃　┃" << endl;
 	cout << "   "; cout << "┣━╋━╋━╋━╋━╋━╋━╋━┫" << endl;
-	cout << " 5 "; cout << "┃　┃　┃　┃";
+	cout << " E "; cout << "┃　┃　┃　┃";
 	wAttributes = COLOR_BLACK | BACKGROUND_GREEN;
 	SetConsoleTextAttribute(hStdout, wAttributes);
 	cout << "●";
@@ -143,11 +126,11 @@ void Reversi::Draw()
 	cout << "┃●┃　┃　┃　┃" << endl;
 
 	cout << "   "; cout << "┣━╋━╋━╋━╋━╋━╋━╋━┫" << endl;
-	cout << " 6 "; cout << "┃　┃　┃　┃　┃　┃　┃　┃　┃" << endl;
+	cout << " F "; cout << "┃　┃　┃　┃　┃　┃　┃　┃　┃" << endl;
 	cout << "   "; cout << "┣━╋━╋━╋━╋━╋━╋━╋━┫" << endl;
-	cout << " 7 "; cout << "┃　┃　┃　┃　┃　┃　┃　┃　┃" << endl;
+	cout << " G "; cout << "┃　┃　┃　┃　┃　┃　┃　┃　┃" << endl;
 	cout << "   "; cout << "┣━╋━╋━╋━╋━╋━╋━╋━┫" << endl;
-	cout << " 8 "; cout << "┃　┃　┃　┃　┃　┃　┃　┃　┃" << endl;
+	cout << " H "; cout << "┃　┃　┃　┃　┃　┃　┃　┃　┃" << endl;
 	cout << "   "; cout << "┗━┻━┻━┻━┻━┻━┻━┻━┛" << endl;
 	cout << endl;
 

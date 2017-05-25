@@ -3,18 +3,20 @@
 
 #include "Board.h"
 #include "Stone.h"
+#include "Guide.h"
 
 class Reversi
 {
-	public:
-		void Run();
+public:
+	void Run();
 
-	private:
-		Board board;
-		Stone stone[HORIZONTAL][VERTICAL];
+private:
+	Guide guide;
+	Board board;
+	Stone stone[VERTICAL][HORIZONTAL];
 
-		void Initialize();
-		void Update();
-		void Draw();
+	void Initialize();
+	void Update();
+	void Draw();
 };
 #endif

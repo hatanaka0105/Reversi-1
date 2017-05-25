@@ -2,6 +2,7 @@
 #define ___Class_Board
 
 #include <Windows.h>
+#include "Stone.h"
 
 #define HORIZONTAL 8
 #define VERTICAL 8
@@ -13,9 +14,11 @@ private:
 	WORD wAttributes;
 	CONSOLE_SCREEN_BUFFER_INFO csbi;//ç\ë¢ëÃÇ≈Ç∑
 
+	void SetBoardColor();
+
 public:
 	void Initialize();
 	void Update();
-	void Draw();
+	void Draw(Stone stone[VERTICAL][HORIZONTAL]);
 };
 #endif
