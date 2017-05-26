@@ -56,3 +56,4 @@ int main()
 }
 
 //http://tech2assist.web.fc2.com/wabisabi/cpp/cpp014.html
+//http://inemaru.hatenablog.com/entry/2015/09/23/002412
