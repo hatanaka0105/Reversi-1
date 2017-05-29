@@ -1,5 +1,5 @@
 #include <iostream>
-#include <Windows.h>
+#include "DrawObject.h"
 #include "Reversi.h"
 
 #define COLOR_BLACK 0
@@ -99,5 +99,4 @@ void Reversi::Draw()
 ・タイトル(余裕があれば)
 ・ゲームメイン(余裕があれば)
 ・乱数
-
 */

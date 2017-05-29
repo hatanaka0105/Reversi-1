@@ -6,13 +6,6 @@
 
 using namespace std;
 
-void Guide::Initialize()
-{
-	hStdout = GetStdHandle(STD_OUTPUT_HANDLE);
-	//hStdoutのコンソールスクリーンバッファ情報をcsbiに取得
-	GetConsoleScreenBufferInfo(hStdout, &csbi);
-}
-
 void Guide::DrawHorizontal()
 {
 	cout << " 　";

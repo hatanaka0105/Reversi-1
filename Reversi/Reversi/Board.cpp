@@ -6,14 +6,6 @@
 
 using namespace std;
 
-
-void Board::Initialize()
-{
-	hStdout = GetStdHandle(STD_OUTPUT_HANDLE);
-	//hStdoutのコンソールスクリーンバッファ情報をcsbiに取得
-	GetConsoleScreenBufferInfo(hStdout, &csbi);
-}
-
 void Board::Update()
 {
 

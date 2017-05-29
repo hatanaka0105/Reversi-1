@@ -1,7 +1,7 @@
 #ifndef ___Class_Stone
 #define ___Class_Stone
 
-#include <Windows.h>
+#include "DrawObject.h"
 
 enum Color
 {
@@ -10,13 +10,8 @@ enum Color
 	White
 };
 
-class Stone
+class Stone : public DrawObject
 {
-private:
-	HANDLE hStdout;
-	WORD wAttributes;
-	CONSOLE_SCREEN_BUFFER_INFO csbi;//ç\ë¢ëÃÇ≈Ç∑
-
 public:
 	Color myColor;
 
