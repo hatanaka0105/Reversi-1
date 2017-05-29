@@ -2,6 +2,7 @@
 #define ___Class_Stone
 
 #include "DrawObject.h"
+#include "ConstantMacro.h"
 
 enum Color
 {

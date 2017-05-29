@@ -156,6 +156,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Board.h" />
+    <ClInclude Include="ConstantMacro.h" />
     <ClInclude Include="DrawObject.h" />
     <ClInclude Include="Guide.h" />
     <ClInclude Include="Player.h" />

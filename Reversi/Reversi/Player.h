@@ -3,6 +3,8 @@
 
 #include <iostream>
 #include <string>
+#include "Stone.h"
+#include "ConstantMacro.h"
 
 using namespace std;
 
@@ -11,11 +13,11 @@ class Player
 private:
 	string inputString;
 
-	void Input();
+	void Input(Stone stone[VERTICAL][HORIZONTAL]);
 	void ConvertInput();
 
 public:
-	void Update();
+	void Update(Stone stone[VERTICAL][HORIZONTAL]);
 };
 
 #endif

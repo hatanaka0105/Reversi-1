@@ -16,7 +16,8 @@ void Reversi::Run()
 		Reversi::Update();
 
 		//TODOFğŒ‚ğ’Ç‰Á‚·‚é
-		break;
+		Reversi::Draw();
+		//break;
 	}
 
 	cout << "Run(2‰ñ–Ú)‚¾‚æ`" << endl;
@@ -68,7 +69,7 @@ void Reversi::Initialize()
 void Reversi::Update()
 {
 	cout << "Update‚¾‚æ`" << endl;
-	player.Update();
+	player.Update(stone);
 }
 
 void Reversi::Draw()

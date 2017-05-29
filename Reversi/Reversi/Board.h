@@ -4,9 +4,7 @@
 #include "DrawObject.h"
 #include "Stone.h"
 #include "Guide.h"
-
-#define HORIZONTAL 8
-#define VERTICAL 8
+#include "ConstantMacro.h"
 
 class Board : public DrawObject
 {

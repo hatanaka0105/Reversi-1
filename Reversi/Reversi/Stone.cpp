@@ -2,9 +2,6 @@
 #include <Windows.h>
 #include "Stone.h"
 
-#define COLOR_BLACK 0
-#define COLOR_WHITE 7
-
 using namespace std;
 
 void Stone::Initialize(int colorNumber)

@@ -3,17 +3,20 @@
 
 using namespace std;
 
-void Player::Update()
+void Player::Update(Stone stone[VERTICAL][HORIZONTAL])
 {
 	inputString.clear();
 	
-	Input();
-	ConvertInput();
+	Input(stone);
 }
 
-void Player::Input()
+void Player::Input(Stone stone[VERTICAL][HORIZONTAL])
 {
 	cin >> inputString;
+	ConvertInput();
+
+	if(stone[0][0].myColor == (Color)0)
+	stone[0][0].myColor = (Color)1;
 }
 
 void Player::ConvertInput()
