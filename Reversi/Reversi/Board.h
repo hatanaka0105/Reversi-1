@@ -3,6 +3,7 @@
 
 #include <Windows.h>
 #include "Stone.h"
+#include "Guide.h"
 
 #define HORIZONTAL 8
 #define VERTICAL 8
@@ -19,6 +20,6 @@ private:
 public:
 	void Initialize();
 	void Update();
-	void Draw(Stone stone[VERTICAL][HORIZONTAL]);
+	void Draw(Stone stone[VERTICAL][HORIZONTAL], Guide guide);
 };
 #endif

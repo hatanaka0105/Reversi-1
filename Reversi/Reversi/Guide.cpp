@@ -2,18 +2,50 @@
 #include <string>
 #include <Windows.h>
 #include "Guide.h"
+#include "Board.h"
 
 using namespace std;
 
-void Guide::DrawHorizontal()
+void Guide::Initialize()
 {
-	string a = "‚P";
-	cout << "   "; cout << "@‚P@‚Q@‚R@‚S@‚T@‚U@‚V@‚W" << endl;
-	cout << "‚P" + ('‚Q' - '‚P') << endl;
+	hStdout = GetStdHandle(STD_OUTPUT_HANDLE);
+	//hStdout‚ÌƒRƒ“ƒ\[ƒ‹ƒXƒNƒŠ[ƒ“ƒoƒbƒtƒ@î•ñ‚ðcsbi‚ÉŽæ“¾
+	GetConsoleScreenBufferInfo(hStdout, &csbi);
 }
 
-void Guide::DrawVertical()
+void Guide::DrawHorizontal()
 {
-	//switch(vertical)
-	cout << "a" + ("c" - "a") << endl;
+	cout << " @";
+
+	for (int i = 0; i < HORIZONTAL; i++)
+	{
+		if (i < 9)
+		{
+			wchar_t guideOfHorizontal = L'‚P' + i;
+			wcout << L'@' << guideOfHorizontal;
+		}
+		else
+		{
+			int guideOfHorizontal = i + 1;
+
+			//ŽOŒ…‚Ìê‡0‚Æ•\Ž¦‚³‚¹‚é
+			if (guideOfHorizontal > 99)
+				guideOfHorizontal = 0;
+
+			cout << "@"; cout << guideOfHorizontal;
+		}
+	}
+
+	cout << endl;
+}
+
+void Guide::DrawVertical(int numberOfVertical)
+{
+	char guideOfVertical = 'A' + numberOfVertical;
+	if (guideOfVertical > 'Z')
+		guideOfVertical = '?';
+
+	cout << " ";
+	cout << guideOfVertical;
+	cout << " ";
 }

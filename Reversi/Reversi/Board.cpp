@@ -19,12 +19,13 @@ void Board::Update()
 
 }
 
-void Board::Draw(Stone stone[VERTICAL][HORIZONTAL])
+void Board::Draw(Stone stone[VERTICAL][HORIZONTAL], Guide guide)
 {
+	cout << "   ";
+
 	//FÝ’è
 	SetBoardColor();
 
-	cout << "   ";
 	cout << "„¬";
 	for (int i = 0; i < HORIZONTAL - 1; i++)
 	{
@@ -34,8 +35,9 @@ void Board::Draw(Stone stone[VERTICAL][HORIZONTAL])
 
 	for (int j = 0; j < VERTICAL - 1; j++)
 	{
-		cout << " A ";
-		//‚±‚±‚ÌŠÔ‚ÉÎ‚ª“ü‚é
+		SetConsoleTextAttribute(hStdout, csbi.wAttributes);
+		guide.DrawVertical(j);
+		SetConsoleTextAttribute(hStdout, wAttributes);
 		for (int i = 0; i < HORIZONTAL; i++)
 		{
 			cout << "„«";
@@ -44,7 +46,10 @@ void Board::Draw(Stone stone[VERTICAL][HORIZONTAL])
 		}
 		cout << "„«" << endl;
 
-		cout << "   „°";
+		SetConsoleTextAttribute(hStdout, csbi.wAttributes);
+		cout << "   ";
+		SetConsoleTextAttribute(hStdout, wAttributes);
+		cout << "„°";
 		for (int i = 0; i < HORIZONTAL - 1; i++)
 		{
 			cout << "„ª„´";
@@ -52,8 +57,11 @@ void Board::Draw(Stone stone[VERTICAL][HORIZONTAL])
 		cout << "„ª„²" << endl;
 	}
 
-	cout << " A ";
-	//‚±‚±‚ÌŠÔ‚ÉÎ‚ª“ü‚é
+	//ÅŒã‚Ìs------------------------------
+	SetConsoleTextAttribute(hStdout, csbi.wAttributes);
+	guide.DrawVertical(VERTICAL - 1);
+	SetConsoleTextAttribute(hStdout, wAttributes);
+
 	for (int i = 0; i < HORIZONTAL; i++)
 	{
 		cout << "„«";
@@ -62,7 +70,9 @@ void Board::Draw(Stone stone[VERTICAL][HORIZONTAL])
 	}
 	cout << "„«" << endl;
 
+	SetConsoleTextAttribute(hStdout, csbi.wAttributes);
 	cout << "   ";
+	SetConsoleTextAttribute(hStdout, wAttributes);
 	cout << "„¯";
 	for (int i = 0; i < HORIZONTAL - 1; i++)
 	{
