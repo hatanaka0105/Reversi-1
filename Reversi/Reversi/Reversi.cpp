@@ -2,9 +2,6 @@
 #include "DrawObject.h"
 #include "Reversi.h"
 
-#define COLOR_BLACK 0
-#define COLOR_WHITE 7
-
 using namespace std;
 
 void Reversi::Run()
@@ -15,8 +12,8 @@ void Reversi::Run()
 
 	while (1)
 	{
-		Reversi::Update();
 		Reversi::Draw();
+		Reversi::Update();
 
 		//TODOFğŒ‚ğ’Ç‰Á‚·‚é
 		break;
@@ -71,6 +68,7 @@ void Reversi::Initialize()
 void Reversi::Update()
 {
 	cout << "Update‚¾‚æ`" << endl;
+	player.Update();
 }
 
 void Reversi::Draw()
