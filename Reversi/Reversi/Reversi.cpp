@@ -4,9 +4,10 @@
 
 using namespace std;
 
+
 void Reversi::Run()
 {
-	cout << "Run‚¾‚æ`" << endl;
+	cout << "Runã ã‚ˆï½ž" << endl;
 
 	Reversi::Initialize();
 
@@ -15,17 +16,17 @@ void Reversi::Run()
 		Reversi::Draw();
 		Reversi::Update();
 
-		//TODOFðŒ‚ð’Ç‰Á‚·‚é
+		//TODOï¼šæ¡ä»¶ã‚’è¿½åŠ ã™ã‚‹
 		Reversi::Draw();
 		//break;
 	}
 
-	cout << "Run(2‰ñ–Ú)‚¾‚æ`" << endl;
+	cout << "Run(2å›žç›®)ã ã‚ˆï½ž" << endl;
 }
 
 void Reversi::Initialize()
 {
-	cout << "Initialize‚¾‚æ`" << endl;
+	cout << "Initializeã ã‚ˆï½ž" << endl;
 	board.Initialize();
 
 	const int green = 0;
@@ -36,25 +37,25 @@ void Reversi::Initialize()
 	{
 		for (int j = 0; j < HORIZONTAL; j++)
 		{
-			//’†‰›‚Ì¶ã
+			//ä¸­å¤®ã®å·¦ä¸Š
 			if ((j + 1) * 2 == HORIZONTAL && (i + 1) * 2 == VERTICAL)
 			{
 				stone[i][j].Initialize(black);
 				continue;
 			}
-			//’†‰›‚Ì‰Eã
+			//ä¸­å¤®ã®å³ä¸Š
 			if (j * 2 == HORIZONTAL && (i + 1) * 2 == VERTICAL)
 			{
 				stone[i][j].Initialize(white);
 				continue;
 			}
-			//’†‰›‚Ì¶‰º
+			//ä¸­å¤®ã®å·¦ä¸‹
 			if ((j + 1) * 2 == HORIZONTAL && i * 2 == VERTICAL)
 			{
 				stone[i][j].Initialize(white);
 				continue;
 			}
-			//’†‰›‚Ì‰E‰º
+			//ä¸­å¤®ã®å³ä¸‹
 			if (j * 2 == HORIZONTAL && i * 2 == VERTICAL)
 			{
 				stone[i][j].Initialize(black);
@@ -68,34 +69,35 @@ void Reversi::Initialize()
 
 void Reversi::Update()
 {
-	cout << "Update‚¾‚æ`" << endl;
+	cout << "Updateã ã‚ˆï½ž" << endl;
 	player.Update(stone);
 }
 
 void Reversi::Draw()
 {
-	//•`‰æXV
+	//æç”»æ›´æ–°
 	system("cls");
 
-	cout << "Draw‚¾‚æ`" << endl;
+	cout << "Drawã ã‚ˆï½ž" << endl;
 	guide.DrawHorizontal();
 	board.Draw(stone, guide);
 }
 
+//ã“ã†ã„ã†ã®ã‚ã‹ã‚Šã‚„ã™ãã¦ã„ã„ã§ã™ã­ã€€H
 /*
-•`‰æƒIƒuƒWƒFƒNƒg
-EƒKƒCƒh
-Eƒ{[ƒh
-EƒXƒg[ƒ“i‹ó”’‚Í”wŒi‚Æ“¯F‚ÌƒuƒƒbƒN)
-EƒƒbƒZ[ƒW
-EƒƒS(—]—T‚ª‚ ‚ê‚Î)
-Eƒƒjƒ…[(—]—T‚ª‚ ‚ê‚Î)
+æç”»ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆ
+ãƒ»ã‚¬ã‚¤ãƒ‰
+ãƒ»ãƒœãƒ¼ãƒ‰
+ãƒ»ã‚¹ãƒˆãƒ¼ãƒ³ï¼ˆç©ºç™½ã¯èƒŒæ™¯ã¨åŒè‰²ã®ãƒ–ãƒ­ãƒƒã‚¯)
+ãƒ»ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸
+ãƒ»ãƒ­ã‚´(ä½™è£•ãŒã‚ã‚Œã°)
+ãƒ»ãƒ¡ãƒ‹ãƒ¥ãƒ¼(ä½™è£•ãŒã‚ã‚Œã°)
 
-ˆ—ƒIƒuƒWƒFƒNƒg
-EƒGƒlƒ~[
-EƒvƒŒƒCƒ„[
-EƒV[ƒ“(—]—T‚ª‚ ‚ê‚Î)
-Eƒ^ƒCƒgƒ‹(—]—T‚ª‚ ‚ê‚Î)
-EƒQ[ƒ€ƒƒCƒ“(—]—T‚ª‚ ‚ê‚Î)
-E—”
+å‡¦ç†ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆ
+ãƒ»ã‚¨ãƒãƒŸãƒ¼
+ãƒ»ãƒ—ãƒ¬ã‚¤ãƒ¤ãƒ¼
+ãƒ»ã‚·ãƒ¼ãƒ³(ä½™è£•ãŒã‚ã‚Œã°)
+ãƒ»ã‚¿ã‚¤ãƒˆãƒ«(ä½™è£•ãŒã‚ã‚Œã°)
+ãƒ»ã‚²ãƒ¼ãƒ ãƒ¡ã‚¤ãƒ³(ä½™è£•ãŒã‚ã‚Œã°)
+ãƒ»ä¹±æ•°
 */
